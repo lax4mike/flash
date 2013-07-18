@@ -1,0 +1,57 @@
+@import "bourbon/app/assets/stylesheets/_bourbon.scss";
+
+body {
+    background: #fafafa;
+}
+
+
+.card-container {
+
+	&:hover {
+		.card {
+			@include transform(rotateY(180deg));
+			color: black;
+			.front {
+				z-index: 0;
+			}
+		}
+	}
+
+	.card {
+		font-family: 'trebuchet ms', sans-serif;
+		width: 200px;
+		height: 50px;
+		position: relative;
+		@include transform-style(preserve-3d);
+		@include transition(1s);
+		@include perspective(500px);
+
+		.face {
+			position: absolute;
+			@include backface-visibility(hidden);
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: white;
+			line-height: 50px;
+			text-align: center;
+
+			&.front {
+				z-index: 10;
+				background: red;
+			}
+			&.back {
+				background: green;
+				@include transform(rotateY(180deg));
+			}
+		} /* face */
+
+	} /* card */
+	
+
+} /* .card-container */
+
+	
+
+	
